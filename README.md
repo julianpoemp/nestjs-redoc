@@ -39,9 +39,9 @@
 
 ## 🗿 Installation
 
-Using npm: `npm i nestjs-redoc`
+Using npm: `npm i @julianpoemp/nestjs-redoc`
 
-Using yarn: `yarn add nestjs-redoc`
+Using yarn: `yarn add @julianpoemp/nestjs-redoc`
 
 ## ❓ How to use
 
