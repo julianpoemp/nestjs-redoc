@@ -1,6 +1,8 @@
 export interface RedocOptions {
   /** Version of ReDoc to use (e.g. next, latest, 2.0.0-rc.50), by default is latest */
   redocVersion?: string;
+  redocStandaloneURL?: string;
+  disableGoogleFont?: boolean;
   /** Web site title (e.g: ReDoc documentation) */
   title?: string;
   /** Web site favicon URL */

@@ -1,13 +1,13 @@
-import { HttpServer, INestApplication } from '@nestjs/common';
-import { NestExpressApplication } from '@nestjs/platform-express';
-import { OpenAPIObject } from '@nestjs/swagger';
-import { Request, Response } from 'express';
+import {HttpServer, INestApplication} from '@nestjs/common';
+import {NestExpressApplication} from '@nestjs/platform-express';
+import {OpenAPIObject} from '@nestjs/swagger';
+import {Request, Response} from 'express';
 import expressAuth from 'express-basic-auth';
 import handlebars from 'express-handlebars';
 import pathModule from 'path';
-import { resolve } from 'url';
-import { LogoOptions, RedocDocument, RedocOptions } from './interfaces';
-import { schema } from './model/options.model';
+import {resolve} from 'url';
+import {LogoOptions, RedocDocument, RedocOptions} from './interfaces';
+import {schema} from './model/options.model';
 
 export class RedocModule {
   /**
@@ -98,7 +98,7 @@ export class RedocModule {
       },
     });
     // spread redoc options
-    const { title, favicon, theme, redocVersion, ...otherOptions } = options;
+    const {title, favicon, theme, redocVersion, redocStandaloneURL, disableGoogleFont, ...otherOptions} = options;
     // create render object
     const renderData = {
       data: {
@@ -106,6 +106,8 @@ export class RedocModule {
         docUrl,
         favicon,
         redocVersion,
+        redocStandaloneURL,
+        disableGoogleFont,
         options: otherOptions,
         ...(theme && {
           theme: {
@@ -135,8 +137,8 @@ export class RedocModule {
         res.send(redocHTML);
       };
       if (options.auth?.enabled) {
-        const { user, password } = options.auth;
-        expressAuth({ users: { [user]: password }, challenge: true })(
+        const {user, password} = options.auth;
+        expressAuth({users: {[user]: password}, challenge: true})(
           req,
           res,
           () => {
@@ -172,7 +174,7 @@ export class RedocModule {
     document: RedocDocument
   ): RedocDocument {
     if (options.logo) {
-      const logoOption: Partial<LogoOptions> = { ...options.logo };
+      const logoOption: Partial<LogoOptions> = {...options.logo};
       document.info['x-logo'] = logoOption;
     }
 
