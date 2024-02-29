@@ -1,5 +1,5 @@
 {
-  "name": "@julianpoemp/nestjs-redoc",
+  "name": "@flyingpotato/nestjs-redoc",
   "version": "2.3.0",
   "description": "NestJS ReDoc frontend",
   "repository": "https://github.com/mxarc/nestjs-redoc",
